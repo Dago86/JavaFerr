@@ -18,41 +18,31 @@ num → 2 4 6 8 11 12 14 16 18 20
 
 
 
-
-import java.util.Scanner;
-
-public class Esercizio3es {
-	
-	public static void main (String [] args) {
-		int temp = 0;
-		Scanner scanner = new Scanner (System.in);
-		int [] arr = new int [10];
-		System.out.println("Inserisci valori");
-				{
-				for (i=0; i<arr.length; i++)
-					{
-						arr[i]= scanner.nextInt();
-				
-					}
+private static void dieciNumeri(){
+		
+		Scanner scanner = new Scanner (System.in);		
+		int[] arr = new int[10];
+		arr[0] = scanner.nextInt();
+		int i = 0;
+		for (i = 1; i < arr.length; i++) {
+			int tmp = scanner.nextInt();
+			if( tmp <= arr[i-1] ){
+				break;
+			}
+			arr[i] = tmp;
 		}
 		
-		for(int i= 0;i<arr.length;i++)
-			System.out.print(arr[i]);
-		
-		System.out.println("Inserisci la x");
+		System.out.println("Insert the X value: ");
 		int x = scanner.nextInt();
-		for(int i= 1;i<arr.length;i++)
-		{
-			if (arr[i]>x){
-				arr[i-1]=x;
-			break;}
-			if (arr[9]<x)
-				arr[9]=x;
-			
-			
+		int j = 0;
+		
+		for (j = 1; j < arr.length; j++) {
+			if(arr[j] > x){
+				arr[j-1] = x; 
+				break;
+			}
 		}
-		for(int i= 0;i<arr.length;i++)
-			System.out.print(arr[i]);
-	}
-	
+		
+		System.out.println("arr -> " + Arrays.toString(arr));		
+		scanner.close();//recupera le risorse dalla memoria
 }
