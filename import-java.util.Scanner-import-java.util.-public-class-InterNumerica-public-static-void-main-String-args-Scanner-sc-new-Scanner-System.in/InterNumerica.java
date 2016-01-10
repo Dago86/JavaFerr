@@ -55,16 +55,16 @@ public class InterNumerica{
 				System.out.println("Arraylist contains: " + al.toString());
 			}
 			else if(s==5){
-            al = selectionSort(al);
-            //int indiceprova = 2;
-            //al.IndexOf(indici);
-            
-           // ... Get sub list from 1 to 3.
-	//List<Integer> sub = list.subList(1, 3);
-
-	// ... Display sub list.
-	//for (int value : sub) {
-	   // System.out.println(value);
+            		al = selectionSort(al);
+           		int aValue = sc.nextInt();
+				int index = al.indexOf(aValue);
+				if( index == -1 ){
+					System.out.println("sorry...element not found. Exiting...");
+					return;
+				}
+				for (int i=index; i < al.size(); i++) {
+					System.out.println(al.get(i));
+				}
         
 			}
 			else if(s==6){
