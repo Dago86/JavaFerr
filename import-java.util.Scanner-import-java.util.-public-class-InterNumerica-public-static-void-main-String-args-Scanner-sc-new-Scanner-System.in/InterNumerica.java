@@ -8,10 +8,9 @@ Le operazioni da implementare sono le seguenti:
 - media dei valori dell’insieme 
 
 
-
-
 import java.util.Scanner;
 import java.util.*;
+import java.util.ArrayList;
 
 public class InterNumerica{
 	public static void main (String[] args){
@@ -57,9 +56,15 @@ public class InterNumerica{
 			}
 			else if(s==5){
             al = selectionSort(al);
+            //int indiceprova = 2;
+            //al.IndexOf(indici);
             
-            for (int p=sc.nextInt();p<al.size();p++)
-            System.out.println(al.get(p));
+           // ... Get sub list from 1 to 3.
+	//List<Integer> sub = list.subList(1, 3);
+
+	// ... Display sub list.
+	//for (int value : sub) {
+	   // System.out.println(value);
         
 			}
 			else if(s==6){
