@@ -10,9 +10,6 @@ Le operazioni da implementare sono le seguenti:
 
 
 
-
-
-
 import java.util.Scanner;
 import java.util.*;
 
@@ -22,8 +19,9 @@ public class InterNumerica{
 		//creo un array list
 		int s=0;
 		ArrayList<Integer> al = new ArrayList<Integer>();
-		System.out.println("Decidi cosa vuoi fare: 1- Inserzione elemento 2- verifica presenza 3- rimozione di un elemento 4-stampa tutti gli elementi 5- stampa gli elementi superiore ad un valore dato 6-fai la media dei valori");
+		
 		do {
+			System.out.println("Decidi cosa vuoi fare: 1- Inserzione elemento 2- verifica presenza 3- rimozione di un elemento 4-stampa tutti gli elementi 5- stampa gli elementi superiore ad un valore dato 6-fai la media dei valori");
 			s = sc.nextInt();
 			if(s==1){
 				System.out.println("Aggiungi un valore");
@@ -38,14 +36,31 @@ public class InterNumerica{
 				System.out.println("Non lo contiene...");
 			}
 			else if(s==3){
-				System.out.println("Quale valore vuoi elminare=?");
-				al.remove(sc.nextInt());
+				int ch=sc.nextInt();
+				int idx = 0;			
+				while (idx < al.size())
+				{
+					if(al.get(idx) == ch)
+					{
+						// Remove item
+						al.remove(idx);	
+						
+					}
+					else
+					{
+						++idx;
+					}
+				}
 			}
 			else if(s==4){
 				System.out.println("Arraylist contains: " + al.toString());
 			}
 			else if(s==5){
-	
+            al = selectionSort(al);
+            
+            for (int p=sc.nextInt();p<al.size();p++)
+            System.out.println(al.get(p));
+        
 			}
 			else if(s==6){
 				long sum = 0;
@@ -59,5 +74,23 @@ public class InterNumerica{
 			
 		}while (s < 7); 
 		
-	}
+	
+}
+
+public static ArrayList<Integer> selectionSort(ArrayList<Integer> al) {
+	
+    for (int i = 0; i < al.size() - 1; i++)
+    {
+        for (int j = i + 1; j < al.size(); j++)
+        {
+            if (al.get(i) > al.get(j)) {
+            	
+                int temp = al.get(j);
+                al.set(j, al.get(i));
+                al.set(i, temp);
+            }
+        }
+    }
+    return al;
+}
 }
